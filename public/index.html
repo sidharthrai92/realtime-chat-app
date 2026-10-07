@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Real Time Chat</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- JOIN SCREEN -->
+
+    <section id="joinScreen" class="join-screen">
+
+        <div class="join-card">
+
+            <div class="logo">
+                💬
+            </div>
+
+            <h1>
+                Real-Time Chat
+            </h1>
+
+            <p>
+                Connect and chat instantly
+                with your friends.
+            </p>
+
+            <form id="joinForm">
+
+                <label>
+                    Your Name
+                </label>
+
+                <input
+                    id="username"
+                    type="text"
+                    maxlength="25"
+                    placeholder="Enter your name"
+                    autocomplete="off"
+                    required
+                >
+
+                <label>
+                    Room Name
+                </label>
+
+                <input
+                    id="room"
+                    type="text"
+                    maxlength="30"
+                    value="general"
+                    placeholder="general"
+                    autocomplete="off"
+                >
+
+                <button type="submit">
+                    Join Chat →
+                </button>
+
+                <p
+                    id="joinError"
+                    class="error"
+                ></p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- CHAT APPLICATION -->
+
+    <main
+        id="chatApp"
+        class="chat-app hidden"
+    >
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <span>💬</span>
+
+                <div>
+
+                    <strong>
+                        ChatApp
+                    </strong>
+
+                    <small>
+                        Real-Time Messenger
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="room-box">
+
+                <span class="online-dot"></span>
+
+                <div>
+
+                    <small>
+                        ROOM
+                    </small>
+
+                    <strong id="roomName">
+                        general
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="users-heading">
+
+                <span>
+                    Online Members
+                </span>
+
+                <span id="userCount">
+                    0
+                </span>
+
+            </div>
+
+
+            <div
+                id="usersList"
+                class="users-list"
+            ></div>
+
+
+            <div class="sidebar-bottom">
+
+                <button
+                    id="themeBtn"
+                    class="secondary-btn"
+                >
+                    🌙 Dark Mode
+                </button>
+
+                <button
+                    id="leaveBtn"
+                    class="secondary-btn"
+                >
+                    🚪 Leave Chat
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- CHAT AREA -->
+
+        <section class="chat-area">
+
+            <header class="chat-header">
+
+                <div>
+
+                    <h2 id="headerRoom">
+                        # general
+                    </h2>
+
+                    <span id="connectionStatus">
+                        ● Connected
+                    </span>
+
+                </div>
+
+                <button
+                    id="mobileUsersBtn"
+                    class="icon-btn"
+                >
+                    👥
+                </button>
+
+            </header>
+
+
+            <!-- MESSAGES -->
+
+            <div
+                id="messages"
+                class="messages"
+            ></div>
+
+
+            <!-- TYPING -->
+
+            <div
+                id="typingBox"
+                class="typing-box"
+            ></div>
+
+
+            <!-- MESSAGE FORM -->
+
+            <form
+                id="messageForm"
+                class="message-form"
+            >
+
+                <button
+                    type="button"
+                    id="emojiBtn"
+                    class="icon-btn"
+                >
+                    😊
+                </button>
+
+
+                <div class="input-wrap">
+
+                    <input
+                        id="messageInput"
+                        type="text"
+                        maxlength="1000"
+                        placeholder="Write a message..."
+                        autocomplete="off"
+                    >
+
+
+                    <!-- EMOJI -->
+
+                    <div
+                        id="emojiPanel"
+                        class="emoji-panel hidden"
+                    >
+
+                        <button type="button">😀</button>
+                        <button type="button">😂</button>
+                        <button type="button">😍</button>
+                        <button type="button">😎</button>
+                        <button type="button">🔥</button>
+                        <button type="button">❤️</button>
+                        <button type="button">👍</button>
+                        <button type="button">👏</button>
+                        <button type="button">🎉</button>
+                        <button type="button">😢</button>
+                        <button type="button">😡</button>
+                        <button type="button">🙏</button>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="send-btn"
+                >
+                    Send ➤
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- SOCKET.IO -->
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- CUSTOM JS -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
